@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Elf : EnemyParent
+public class Elf : Unit, IMovable, IDamagable
 {
     private Renderer renderer;
     private bool isVisible = true;
@@ -11,14 +11,9 @@ public class Elf : EnemyParent
     void Start()
     {
         health = 2; // Weinig levens
-        speed = 5f; // Snel lopen
+        speed = 4f; // Snel lopen
         renderer = GetComponent<Renderer>();
         StartCoroutine(ToggleVisibility());
-    }
-
-    private void Update()
-    {
-        
     }
 
     private IEnumerator ToggleVisibility()
